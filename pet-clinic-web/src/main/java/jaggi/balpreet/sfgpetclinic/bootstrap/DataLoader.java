@@ -4,8 +4,6 @@ import jaggi.balpreet.sfgpetclinic.model.Owner;
 import jaggi.balpreet.sfgpetclinic.model.Vet;
 import jaggi.balpreet.sfgpetclinic.services.OwnerService;
 import jaggi.balpreet.sfgpetclinic.services.VetService;
-import jaggi.balpreet.sfgpetclinic.services.map.OwnerServiceMap;
-import jaggi.balpreet.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +13,11 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
