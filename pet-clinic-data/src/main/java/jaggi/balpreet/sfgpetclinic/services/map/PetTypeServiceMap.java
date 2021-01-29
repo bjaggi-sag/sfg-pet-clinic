@@ -2,11 +2,13 @@ package jaggi.balpreet.sfgpetclinic.services.map;
 
 import jaggi.balpreet.sfgpetclinic.model.PetType;
 import jaggi.balpreet.sfgpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetTypeServiceMap extends AbstractMapService<PetType,Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
